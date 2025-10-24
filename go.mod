@@ -7,6 +7,7 @@ toolchain go1.24.9
 require (
 	github.com/DanyJDuque/gocourse_domain v0.0.1
 	github.com/ncostamagna/go_http_client v0.0.3
+	github.com/ncostamagna/gocourse_domain v0.0.2
 )
 
 require (

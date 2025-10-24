@@ -11,7 +11,7 @@ import (
 func main() {
 	courseTrans := courseSdk.NewHttpClient("http://localhost:8082", "")
 
-	course, err := courseTrans.Get("4d43ecf8-a4a8-4185-a8db-cd40f3352bc2")
+	course, err := courseTrans.Get("807e78d4-36a9-4bed-94ae-4fd81aa6c4e8")
 	fmt.Println("Course:", course)
 	if err != nil {
 		if errors.As(err, &courseSdk.ErrNotFound{}) {

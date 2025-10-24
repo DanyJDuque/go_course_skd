@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
-
 	"time"
 
 	"github.com/DanyJDuque/gocourse_domain/domain"
@@ -34,16 +33,20 @@ func NewHttpClient(baseURL, token string) Transport {
 	if token != "" {
 		header.Set("Authorization", token)
 	}
+
 	return &clientHTTP{
 		client: c.New(header, baseURL, 5000*time.Millisecond, true),
 	}
 }
 
 func (c *clientHTTP) Get(id string) (*domain.User, error) {
+
 	dataResponse := DataResponse{Data: &domain.User{}}
 
 	u := url.URL{}
 	u.Path += fmt.Sprintf("/users/%s", id)
+
+	fmt.Println("URL ", u.String())
 	reps := c.client.Get(u.String())
 	if reps.Err != nil {
 		return nil, reps.Err
