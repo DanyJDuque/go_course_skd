@@ -53,7 +53,7 @@ func (c *clientHTTP) Get(id string) (*domain.User, error) {
 	}
 
 	if err := reps.FillUp(&dataResponse); err != nil {
-		return nil, err
+		return nil, fmt.Errorf("%s", reps)
 	}
 
 	if reps.StatusCode == 404 {
